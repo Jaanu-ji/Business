@@ -149,7 +149,7 @@ export default function Process() {
         >
           <span className="text-[13px] sm:text-sm text-zinc-600">
             Typical project timeline:{" "}
-            <span className="text-zinc-300 font-semibold">4–12 weeks</span>{" "}
+            <span className="text-zinc-300 font-semibold">3–4 weeks</span>{" "}
             depending on scope and complexity
           </span>
         </motion.div>
