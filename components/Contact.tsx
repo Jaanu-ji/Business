@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { MessageCircle, Mail, Send, ArrowRight, Loader2 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "916264263300";
-const EMAIL = "hello@axiom.studio";
+const EMAIL = "ollwaysatyourservice@gmail.com";
 
 export default function Contact() {
   const ref = useRef<HTMLDivElement>(null);

@@ -17,7 +17,7 @@ const footerLinks = {
   ],
   "Get Started": [
     { label: "WhatsApp Us", href: `https://wa.me/916264263300` },
-    { label: "Email Us", href: "mailto:hello@axiom.studio" },
+    { label: "Email Us", href: "mailto:ollwaysatyourservice@gmail.com" },
     { label: "Book a Free Call", href: "#contact" },
     { label: "Get a Quote", href: "#contact" },
   ],
