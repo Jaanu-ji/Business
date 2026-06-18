@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Palette, Cpu } from "lucide-react";
+import { Code2, Palette, Cpu, Globe, Bot, Database, MessageSquare } from "lucide-react";
 
 const values = [
   {
@@ -21,6 +21,35 @@ const values = [
     desc: "We use the right tool for the job — not the trendiest framework or the most complex architecture.",
   },
 ];
+
+function WorkflowCard({
+  icon: Icon,
+  label,
+}: {
+  icon: any;
+  label: string;
+}) {
+  return (
+    <motion.div
+      animate={{ y: [0, -6, 0] }}
+      transition={{ duration: 3, repeat: Infinity }}
+      className="w-[110px] h-[90px] rounded-2xl border border-white/[0.08] bg-white/[0.03] flex flex-col items-center justify-center gap-2"
+    >
+      <Icon className="w-5 h-5 text-indigo-400" />
+      <span className="text-xs text-zinc-300">{label}</span>
+    </motion.div>
+  );
+}
+
+function AnimatedLine() {
+  return (
+    <motion.div
+      animate={{ opacity: [0.3, 1, 0.3] }}
+      transition={{ duration: 1.5, repeat: Infinity }}
+      className="h-[2px] flex-1 mx-3 bg-gradient-to-r from-cyan-400 to-indigo-500"
+    />
+  );
+}
 
 export default function Team() {
   const ref = useRef<HTMLDivElement>(null);
@@ -60,79 +89,124 @@ export default function Team() {
         </motion.div>
 
         {/* Main layout: story + founder card */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 md:mb-20">
+        {/* Main layout: Automation Content + Workflow Animation */}
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-16 md:mb-20">
 
-          {/* Story / copy */}
+  {/* Left Content */}
+  <motion.div
+    initial={{ opacity: 0, x: -24 }}
+    animate={inView ? { opacity: 1, x: 0 } : {}}
+    transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+  >
+    <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 leading-snug tracking-[-0.02em]">
+      Automate repetitive work. Focus on growth.
+    </h3>
+
+    <p className="text-zinc-400 text-[14px] sm:text-[15px] leading-[1.8] mb-5">
+      We build intelligent automation systems that connect your tools,
+      eliminate manual tasks, and streamline operations across your business.
+    </p>
+
+    <p className="text-zinc-500 text-[14px] sm:text-[15px] leading-[1.8] mb-8">
+      From lead generation and CRM workflows to AI chatbots, reporting,
+      notifications, and business processes — we help teams work faster
+      with less effort.
+    </p>
+
+    <div className="flex flex-wrap gap-2">
+      {[
+        "AI Agents",
+        "CRM Automation",
+        "WhatsApp Bots",
+        "Lead Generation",
+        "Business Workflows",
+      ].map((item) => (
+        <span
+          key={item}
+          className="text-[11px] px-3 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-zinc-400"
+        >
+          {item}
+        </span>
+      ))}
+    </div>
+  </motion.div>
+
+  {/* Automation Workflow */}
+  <motion.div
+    initial={{ opacity: 0, x: 24 }}
+    animate={inView ? { opacity: 1, x: 0 } : {}}
+    transition={{ duration: 0.8, delay: 0.2 }}
+    className="relative"
+  >
+    <div
+      className="glass rounded-3xl border border-white/[0.06] p-8 relative overflow-hidden"
+      style={{
+        boxShadow:
+          "0 0 60px rgba(99,102,241,0.08), 0 0 120px rgba(99,102,241,0.03)",
+      }}
+    >
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-cyan-500/5" />
+
+      {/* Animated particle */}
+      <motion.div
+        animate={{
+          x: [0, 260, 0],
+          y: [0, -20, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="absolute top-16 left-8 w-3 h-3 rounded-full bg-cyan-400 shadow-[0_0_25px_rgba(34,211,238,0.8)]"
+      />
+
+      <div className="relative z-10 flex flex-col gap-6">
+
+        {/* Row 1 */}
+        <div className="flex items-center justify-between">
+          <WorkflowCard icon={Globe} label="Website" />
+          <AnimatedLine />
+          <WorkflowCard icon={Bot} label="AI Agent" />
+        </div>
+
+        {/* Row 2 */}
+        <div className="flex justify-center">
           <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 leading-snug tracking-[-0.02em]">
-              We got tired of overpriced agencies delivering generic results.
-            </h3>
-            <p className="text-zinc-400 text-[14px] sm:text-[15px] leading-[1.8] mb-5">
-              So we built Axiom — a software studio where every project is treated like
-              our own. We work directly with founders, business owners, and teams to build
-              web apps, mobile apps, and AI-powered systems that actually solve real problems.
-            </p>
-            <p className="text-zinc-500 text-[14px] sm:text-[15px] leading-[1.8]">
-              No corporate fluff. No layers of project managers. You talk to the people
-              writing your code, and we ship things that work.
-            </p>
-          </motion.div>
+            animate={{ height: [30, 45, 30] }}
+            transition={{ repeat: Infinity, duration: 2 }}
+            className="w-[2px] bg-gradient-to-b from-cyan-400 to-indigo-500"
+          />
+        </div>
 
-          {/* Founder card */}
+        {/* Row 3 */}
+        <div className="flex items-center justify-between">
+          <WorkflowCard icon={Database} label="CRM" />
+          <AnimatedLine />
+          <WorkflowCard icon={MessageSquare} label="WhatsApp" />
+        </div>
+
+        {/* Final Dashboard */}
+        <div className="flex justify-center pt-2">
           <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            animate={{
+              boxShadow: [
+                "0 0 0 rgba(99,102,241,0)",
+                "0 0 25px rgba(99,102,241,0.5)",
+                "0 0 0 rgba(99,102,241,0)",
+              ],
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+            className="px-6 py-4 rounded-2xl border border-indigo-500/20 bg-indigo-500/10 text-white font-medium"
           >
-            <div
-              className="glass rounded-2xl border border-white/[0.06] p-6 sm:p-8"
-              style={{
-                boxShadow: "0 0 60px rgba(99,102,241,0.06), 0 0 120px rgba(99,102,241,0.02)",
-              }}
-            >
-              <div className="flex items-center gap-4 mb-5">
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-lg font-bold text-white shrink-0"
-                  style={{
-                    background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
-                    boxShadow: "0 0 20px rgba(99,102,241,0.3)",
-                  }}
-                >
-                  SA
-                </div>
-                <div>
-                  <div className="text-white font-semibold text-[15px]">Shahzeb Ansari</div>
-                  <div className="text-zinc-500 text-[12px] mt-0.5">Founder &amp; Lead Developer</div>
-                  <div className="flex items-center gap-1.5 mt-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    <span className="text-[11px] text-zinc-600">Available for new projects</span>
-                  </div>
-                </div>
-              </div>
-
-              <blockquote className="text-zinc-400 text-[14px] leading-[1.8] border-l-2 border-indigo-500/40 pl-4 italic">
-                "Every project we take on gets our full attention. We&apos;re not running a
-                factory — we genuinely care about building software that helps your
-                business grow."
-              </blockquote>
-
-              <div className="mt-5 pt-5 border-t border-white/[0.05] flex flex-wrap gap-2">
-                {["React / Next.js", "React Native", "Node.js", "AI / LLM", "UI/UX Design"].map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-[11px] px-2.5 py-1 rounded-full border border-white/[0.06] text-zinc-500 bg-white/[0.02]"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+            Analytics Dashboard
           </motion.div>
         </div>
+      </div>
+    </div>
+  </motion.div>
+</div>
 
         {/* Values row */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-5">

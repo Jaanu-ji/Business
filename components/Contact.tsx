@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { MessageCircle, Mail, Send, ArrowRight, Loader2 } from "lucide-react";
 
-const WHATSAPP_NUMBER = "923001234567";
+const WHATSAPP_NUMBER = "916264263300";
 const EMAIL = "hello@axiom.studio";
 
 export default function Contact() {

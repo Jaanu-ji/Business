@@ -30,7 +30,7 @@ const fadeIn: Variants = {
   },
 };
 
-const WHATSAPP_NUMBER = "923001234567";
+const WHATSAPP_NUMBER = "916264263300";
 
 const chartBars = [38, 52, 44, 68, 55, 82, 70, 91, 74, 88, 80, 100];
 const activityRows = [

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { CheckCircle2, ArrowRight, MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "923001234567";
+const WHATSAPP_NUMBER = "916264263300";
 
 const plans = [
   {

@@ -16,7 +16,7 @@ const footerLinks = {
     { label: "Pricing", href: "#pricing" },
   ],
   "Get Started": [
-    { label: "WhatsApp Us", href: `https://wa.me/923001234567` },
+    { label: "WhatsApp Us", href: `https://wa.me/916264263300` },
     { label: "Email Us", href: "mailto:hello@axiom.studio" },
     { label: "Book a Free Call", href: "#contact" },
     { label: "Get a Quote", href: "#contact" },
